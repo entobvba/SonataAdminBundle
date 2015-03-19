@@ -81,7 +81,7 @@ class HelperController
             $admin->setUniqid($uniqid);
         }
 
-        $subject = $admin->getModelManager()->find($admin->getClass(), $objectId);
+        $subject = $admin->getModelManager()->findOneBy($admin->getClass(), array("id" => $objectId));
         if ($objectId && !$subject) {
             throw new NotFoundHttpException();
         }
